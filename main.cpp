@@ -10,10 +10,10 @@ int main()
 {
     std::cout << "=====FILE SEARCH=====";
     std::cout << "\nExample : \nEnter the name of file : some_file.exe \n\nEnter the name of Folder : Windows";
-    std::cout << "\n\nEnter the name of file(folder) : "; // Ââîäèòüñÿ íàçâà ôàéëó(ç ğîçøèğèííÿì) àáî ïàïêè 
+    std::cout << "\n\nEnter the name of file(folder) : "; // Ğ’Ğ²Ğ¾Ğ´Ğ¸Ñ‚ÑŒÑÑ Ğ½Ğ°Ğ·Ğ²Ğ° Ñ„Ğ°Ğ¹Ğ»Ñƒ(Ğ· Ñ€Ğ¾Ğ·ÑˆĞ¸Ñ€ĞµĞ½Ğ½ÑĞ¼) Ğ°Ğ±Ğ¾ Ğ¿Ğ°Ğ¿ĞºĞ¸ 
     std::wstring name;
     std::getline(std::wcin, name);
-    //ñòâîğşş ìàñèâ ïîòîê³â 
+    //ÑÑ‚Ğ²Ğ¾Ñ€ÑÑ Ğ¼Ğ°ÑĞ¸Ğ² Ğ¿Ğ¾Ñ‚Ğ¾ĞºÑ–Ğ² 
     std::wstring folders[] = { L"C:" ,L"C:\\Microsoft" ,L"C:\\Windows" ,L"C:\\Program Files",L"C:\\Program Files (x86)", L"C:\\Users",L"D:"};
     std::thread myThreads[6];
     for (int i = 0; i < 6; i++)
@@ -21,6 +21,6 @@ int main()
         myThreads[i] = std::thread(FindFile, folders[i], name);
         myThreads[i].join();
     }
-    std::cin.get();// äëÿ òîãî ùîá ïğè çàê³í÷åíí³ ğîáîòè íå çàêğèâàâñÿ åõå 
+    std::cin.get();// Ğ´Ğ»Ñ Ñ‚Ğ¾Ğ³Ğ¾ Ñ‰Ğ¾Ğ± Ğ¿Ñ€Ğ¸ Ğ·Ğ°ĞºÑ–Ğ½Ñ‡ĞµĞ½Ğ½Ñ– Ñ€Ğ¾Ğ±Ğ¾Ñ‚Ğ¸ Ğ½Ğµ Ğ·Ğ°ĞºÑ€Ğ¸Ğ²Ğ°Ğ²ÑÑ ĞµÑ…Ğµ Ñ„Ğ°Ğ¹Ğ»
     return 0;
 }
