@@ -6,9 +6,9 @@
 #include <thread>
 #include "Hlibrary.h"
 
-bool stop = false;//змінна для зупинки рекурсії коли вже знайденний файл
+bool stop = false;//Р—РјС–РЅРЅР° РґР»СЏ Р·СѓРїРёРЅРєРё СЂРµРєСѓСЂСЃС–С— РєРѕР»Рё РІР¶Рµ Р·РЅР°Р№РґРµРЅРёР№ С„Р°Р№Р»
 
-void FindFile(const std::wstring& directory, std::wstring name) // функція яка виконує пошук файлів 
+void FindFile(const std::wstring& directory, std::wstring name) // С„СѓРЅРєС†С–СЏ СЏРєР° РІРёРєРѕРЅСѓС” РїРѕС€СѓРє С„Р°Р№Р»С–РІ 
 {
 
     std::wstring tmp = directory + L"\\*";
@@ -25,8 +25,8 @@ void FindFile(const std::wstring& directory, std::wstring name) // функція яка в
                       continue;
                 tmp = directory + L"\\" + std::wstring(file.cFileName);
                 //  std::wcout << tmp << std::endl;    
-                    directories.push_back(tmp);// для подальшого проходження в глубинну файлу
-                if (file.cFileName == name) // перевірка іменні файлу 
+                    directories.push_back(tmp);// РґР»СЏ РїРѕРґР°Р»СЊС€РѕРіРѕ РїСЂРѕС…РѕРґР¶РµРЅРЅСЏ РІ РіР»РёР±РёРЅРЅСѓ С„Р°Р№Р»Сѓ
+                if (file.cFileName == name) // РїРµСЂРµРІС–СЂРєР° С–РјРµРЅРЅС– С„Р°Р№Р»Сѓ 
                 {
                     std::wcout << "\nName  :   " << name << "\nDir   :   " << tmp << "\n";
                     stop = true;
@@ -36,7 +36,7 @@ void FindFile(const std::wstring& directory, std::wstring name) // функція яка в
             } while (FindNextFileW(search_handle, &file));
 
             FindClose(search_handle);
-            for (std::vector<std::wstring>::iterator i = directories.begin(), end = directories.end(); i != end; i++) // рекурсія при якій відбувається перевірка на кінець дерикторії
+            for (std::vector<std::wstring>::iterator i = directories.begin(), end = directories.end(); i != end; i++) // СЂРµРєСѓСЂСЃС–СЏ  РїСЂРё СЏРєС–Р№ РІС–РґР±СѓРІР°С”С‚СЊСЃСЏ РїРµСЂРµРІС–СЂРєР° РЅР° РєС–РЅРµС†СЊ РґРёСЂРµРєС‚РѕСЂС–С—
                 FindFile(*i, name);
         }
 
